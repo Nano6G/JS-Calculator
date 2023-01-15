@@ -5,13 +5,12 @@ let numbers = [];
 
 function addNumber(number) {
     number_entered += number.toString();
-    const name = document.getElementById("test")
-    name.style.color = "red";
-    //console.log(number_entered);
+    logNumber();
 }
 
-function clear_number() {
+function clearNumber() {
     number_entered = "";
+    logNumber();
 }
 
 function remove() {
@@ -21,12 +20,12 @@ function remove() {
     else if (typeof numbers[numbers.length] != number) {
         numbers.pop();
     }
-    console.log(number_entered);
+    logNumber();
 }
 
 function decimal(){
     number_entered += ".";
-    console.log(number_entered);
+    logNumber();
 }
 
 function add(){
@@ -66,8 +65,18 @@ function equals(){
     for (let x of numbers){
         console.log(x);
         if (x == "+") {
-            console.log("Adding...")
+        }
+        if (x == "-") {
+        }
+        if (x == "x") {
+        }
+        if (x == "/") {
         }
     }
-    number = []
+    numbers = []
+    logNumber();
+}
+
+function logNumber(){
+    document.getElementById("number").innerHTML = number_entered;
 }

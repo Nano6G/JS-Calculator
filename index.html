@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <title>Calculator</title>
     <link href="style.css" rel="stylesheet">
-    <script src="script.js"></script>
+    
     
   </head>
   <body>
-    <h1 id="test">Calculator</h1>
-    <button type="button" onclick="clear_number()">AC</button>
+    <h1>Calculator</h1>
+    <button type="button" onclick="clearNumber()">AC</button>
     <button type="button" onclick="remove()">DEL</button>
     <button type="button" onclick="addNumber(1)">1</button>
     <button type="button" onclick="addNumber(2)">2</button>
@@ -27,5 +27,7 @@
     <button type="button" onclick="multiply()">x</button>
     <button type="button" onclick="divide()">/</button>
     <button type="button" onclick="equals()">=</button>
+    <p id="number">0</p>
+    <script src="script.js"></script>
   </body>
 </html>
