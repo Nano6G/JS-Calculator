@@ -2,6 +2,7 @@
 
 let number_entered = "";
 let numbers = [];
+var result;
 
 function addNumber(number) {
     number_entered += number.toString();
@@ -30,15 +31,16 @@ function decimal(){
 
 function add(){
     if (typeof numbers[numbers.length] != number) {
-        numbers.push(parseInt(number_entered));
+        numbers.push(parseFloat(number_entered));
         numbers.push("+");
         number_entered = "";
     }
+    operationLengthCheck()
 }
 
 function minus(){
     if (typeof numbers[numbers.length] != number) {
-        numbers.push(parseInt(number_entered));
+        numbers.push(parseFloat(number_entered));
         numbers.push("-");
         number_entered = "";
     }
@@ -46,7 +48,7 @@ function minus(){
 
 function multiply(){
     if (typeof numbers[numbers.length] != number) {
-        numbers.push(parseInt(number_entered));
+        numbers.push(parseFloat(number_entered));
         numbers.push("x");
         number_entered = "";
     }
@@ -54,29 +56,55 @@ function multiply(){
 
 function divide(){
     if (typeof numbers[numbers.length] != number) {
-        numbers.push(parseInt(number_entered));
+        numbers.push(parseFloat(number_entered));
         numbers.push("/");
         number_entered = "";
     }
 }
 
+function operationLengthCheck() {
+    numbers_entered = numbers.length;
+    if (numbers_entered % 3 == 0) {
+        equals()
+    }
+}
+
 function equals(){
-    numbers.push(parseInt(number_entered));
+    numbers.push(parseFloat(number_entered));
     for (let x of numbers){
         console.log(x);
-        if (x == "+") {
+    }
+    for (var i = 0; i < numbers.length; i++){
+        //console.log(numbers[i]);
+        //console.log(numbers[i+1];
+        if (numbers[i] == "+") {
+            result = numbers[i-1] + numbers[i+1];
         }
-        if (x == "-") {
+        if (numbers[i] == "-") {
+            result = numbers[i-1] - numbers[i+1];
         }
-        if (x == "x") {
+        if (numbers[i] == "x") {
+            result = numbers[i-1] * numbers[i+1];
         }
-        if (x == "/") {
+        if (numbers[i] == "/") {
+            result = numbers[i-1] / numbers[i+1];
         }
     }
-    numbers = []
+    clearNumber();
     logNumber();
+    logResult();
+    
+    numbers = []
+    numbers.push(result)
 }
 
 function logNumber(){
     document.getElementById("number").innerHTML = number_entered;
+}
+
+function logResult(){
+    console.log(result);
+    document.getElementById("finalNumber").innerHTML = result;
+    document.getElementById("number").innerHTML = result;
+    
 }
