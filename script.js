@@ -31,49 +31,69 @@ function decimal(){
 
 function add(){
     if (typeof numbers[numbers.length] != number) {
-        numbers.push(parseFloat(number_entered));
+        current_entry = parseFloat(number_entered);
+        if (!isNaN(current_entry)) {
+            numbers.push(current_entry);
+        }
         numbers.push("+");
         number_entered = "";
+        operationLengthCheck()
     }
-    operationLengthCheck()
 }
 
 function minus(){
     if (typeof numbers[numbers.length] != number) {
-        numbers.push(parseFloat(number_entered));
+        current_entry = parseFloat(number_entered);
+        if (!isNaN(current_entry)) {
+            numbers.push(current_entry);
+        }
         numbers.push("-");
         number_entered = "";
+        operationLengthCheck()
     }
 }
 
 function multiply(){
     if (typeof numbers[numbers.length] != number) {
-        numbers.push(parseFloat(number_entered));
+        current_entry = parseFloat(number_entered);
+        if (!isNaN(current_entry)) {
+            numbers.push(current_entry);
+        }
         numbers.push("x");
         number_entered = "";
+        operationLengthCheck()
     }
 }
 
 function divide(){
     if (typeof numbers[numbers.length] != number) {
-        numbers.push(parseFloat(number_entered));
+        current_entry = parseFloat(number_entered);
+        if (!isNaN(current_entry)) {
+            numbers.push(current_entry);
+        }
         numbers.push("/");
         number_entered = "";
+        operationLengthCheck()
     }
 }
 
 function operationLengthCheck() {
     numbers_entered = numbers.length;
+    console.log("Length of numbers:");
+    console.log(numbers_entered);
     if (numbers_entered % 3 == 0) {
+        console.log("Performing operation on 2 numbers in numbers list")
         equals()
     }
 }
 
 function equals(){
-    numbers.push(parseFloat(number_entered));
-    for (let x of numbers){
-        console.log(x);
+    current_entry = parseFloat(number_entered);
+    //console.log(current_entry);
+    if (!isNaN(current_entry)) {
+        numbers.push(current_entry);
     }
+    console.log(...numbers);
     for (var i = 0; i < numbers.length; i++){
         //console.log(numbers[i]);
         //console.log(numbers[i+1];
@@ -95,7 +115,8 @@ function equals(){
     logResult();
     
     numbers = []
-    numbers.push(result)
+    console.log(result);
+    numbers.push(result);
 }
 
 function logNumber(){
@@ -103,7 +124,8 @@ function logNumber(){
 }
 
 function logResult(){
-    console.log(result);
+    //console.log(result);
+    console.log(...numbers);
     document.getElementById("finalNumber").innerHTML = result;
     document.getElementById("number").innerHTML = result;
     
