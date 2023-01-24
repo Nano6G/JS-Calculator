@@ -35,9 +35,9 @@ function add(){
         if (!isNaN(current_entry)) {
             numbers.push(current_entry);
         }
+        operationLengthCheck()
         numbers.push("+");
         number_entered = "";
-        operationLengthCheck()
     }
 }
 
@@ -47,9 +47,9 @@ function minus(){
         if (!isNaN(current_entry)) {
             numbers.push(current_entry);
         }
+        operationLengthCheck()
         numbers.push("-");
         number_entered = "";
-        operationLengthCheck()
     }
 }
 
@@ -59,9 +59,9 @@ function multiply(){
         if (!isNaN(current_entry)) {
             numbers.push(current_entry);
         }
+        operationLengthCheck()
         numbers.push("x");
         number_entered = "";
-        operationLengthCheck()
     }
 }
 
@@ -71,32 +71,26 @@ function divide(){
         if (!isNaN(current_entry)) {
             numbers.push(current_entry);
         }
+        operationLengthCheck()
         numbers.push("/");
         number_entered = "";
-        operationLengthCheck()
     }
 }
 
 function operationLengthCheck() {
     numbers_entered = numbers.length;
-    console.log("Length of numbers:");
-    console.log(numbers_entered);
+
     if (numbers_entered % 3 == 0) {
-        console.log("Performing operation on 2 numbers in numbers list")
         equals()
     }
 }
 
 function equals(){
     current_entry = parseFloat(number_entered);
-    //console.log(current_entry);
     if (!isNaN(current_entry)) {
         numbers.push(current_entry);
     }
-    console.log(...numbers);
     for (var i = 0; i < numbers.length; i++){
-        //console.log(numbers[i]);
-        //console.log(numbers[i+1];
         if (numbers[i] == "+") {
             result = numbers[i-1] + numbers[i+1];
         }
@@ -115,7 +109,6 @@ function equals(){
     logResult();
     
     numbers = []
-    console.log(result);
     numbers.push(result);
 }
 
@@ -124,8 +117,6 @@ function logNumber(){
 }
 
 function logResult(){
-    //console.log(result);
-    console.log(...numbers);
     document.getElementById("finalNumber").innerHTML = result;
     document.getElementById("number").innerHTML = result;
     
