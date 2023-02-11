@@ -29,53 +29,18 @@ function decimal(){
     logNumber();
 }
 
-function add(){
-    if (typeof numbers[numbers.length] != number) {
-        current_entry = parseFloat(number_entered);
-        if (!isNaN(current_entry)) {
-            numbers.push(current_entry);
-        }
-        operationLengthCheck()
-        numbers.push("+");
-        number_entered = "";
+function operate(operation) {
+    if (typeof numbers[numbers.length] == number) {
+        return
     }
-}
-
-function minus(){
-    if (typeof numbers[numbers.length] != number) {
-        current_entry = parseFloat(number_entered);
-        if (!isNaN(current_entry)) {
-            numbers.push(current_entry);
-        }
-        operationLengthCheck()
-        numbers.push("-");
-        number_entered = "";
+    
+    current_entry = parseFloat(number_entered);
+    if (!isNaN(current_entry)) {
+        numbers.push(current_entry);
     }
-}
-
-function multiply(){
-    if (typeof numbers[numbers.length] != number) {
-        current_entry = parseFloat(number_entered);
-        if (!isNaN(current_entry)) {
-            numbers.push(current_entry);
-        }
-        operationLengthCheck()
-        numbers.push("x");
-        number_entered = "";
-    }
-}
-
-function divide(){
-    if (typeof numbers[numbers.length] != number) {
-        current_entry = parseFloat(number_entered);
-        if (!isNaN(current_entry)) {
-            numbers.push(current_entry);
-        }
-        operationLengthCheck()
-        numbers.push("/");
-        number_entered = "";
-    }
-}
+    operationLengthCheck()
+    numbers.push(operation);
+    number_entered = "";
 
 function operationLengthCheck() {
     numbers_entered = numbers.length;
